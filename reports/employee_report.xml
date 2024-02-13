@@ -1,0 +1,12 @@
+<!-- hr_civiltec_reports/reports/employee_report.xml -->
+<odoo>
+    <report
+        id="hr_employee_report"
+        model="hr.employee"
+        string="Employee Report"
+        report_type="qweb-pdf"
+        name="hr_civiltec_reports.hr_employee_report_template"
+        file="hr_civiltec_reports.hr_employee_report_template"
+        print_report_name="'Employee Report - %s' % (object.name)"
+    />
+</odoo>

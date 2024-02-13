@@ -12,6 +12,9 @@
         "views/hr_contract_report.xml",
         "views/hr_contract_report_template.xml",
         "views/hr_contract_views.xml",
+        "views/hr_employee_views.xml",
+        "reports/employee_report.xml",
+        "reports/employee_report_template.xml",
     ],
     "demo": [
         # 'demo/demo.xml',

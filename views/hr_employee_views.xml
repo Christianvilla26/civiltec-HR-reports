@@ -1,0 +1,16 @@
+<!-- hr_civiltec_reports/views/hr_employee_views.xml -->
+<odoo>
+    <data>
+        <record id="hr_employee_form_view_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <field name="desempeno"/>
+                    <field name="funciones"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

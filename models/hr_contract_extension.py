@@ -126,4 +126,41 @@ class HrContract(models.Model):
         year_str = f"del {year}"
         # Combine into the required format
         formatted_date = f"hoy día {day_word} ({day}) del mes de {month_word} {year_str}."
-        return formatted_date   
+        return formatted_date
+    
+class HrEmployee(models.Model):
+    _inherit = 'hr.employee'
+    
+
+    desempeno = fields.Selection([
+        ('excelente', 'Excelente'),
+        ('regular', 'Regular'),
+        ('malo', 'Malo'),
+    ], string='Desempeño')
+
+    funciones = fields.Text(string='Funciones')
+
+    def get_elapsed_time_in_spanish(self):
+        if not self.first_contract_date:
+            return "Fecha no definida"
+        
+        first_contract_date = fields.Date.from_string(self.first_contract_date) if isinstance(self.first_contract_date, str) else self.first_contract_date
+        today = fields.Date.context_today(self)
+        
+        # Calculate differences
+        delta = today - first_contract_date
+        total_days = delta.days
+        years = total_days // 365
+        months = (total_days % 365) // 30  # Approximation
+        days = (total_days % 365) % 30  # Remaining days
+
+        # Translate to Spanish
+        years_str = f"{years} {'año' if years == 1 else 'años'}" if years else ""
+        months_str = f"{months} {'mes' if months == 1 else 'meses'}" if months else ""
+        days_str = f"{days} {'día' if days == 1 else 'días'}" if days else ""
+
+        # Combine parts
+        parts = [p for p in [years_str, months_str, days_str] if p]
+        elapsed_time_spanish = ", ".join(parts)
+        
+        return elapsed_time_spanish or "Hoy"
