@@ -15,6 +15,8 @@
         "views/hr_employee_views.xml",
         "reports/employee_report.xml",
         "reports/employee_report_template.xml",
+        "reports/carta_desahucio_report_action.xml",
+        "reports/carta_desahucio_template.xml",
     ],
     "demo": [
         # 'demo/demo.xml',

@@ -3,7 +3,7 @@
     <report
         id="hr_employee_report"
         model="hr.employee"
-        string="Employee Report"
+        string="Carta de constacia de trabajo"
         report_type="qweb-pdf"
         name="hr_civiltec_reports.hr_employee_report_template"
         file="hr_civiltec_reports.hr_employee_report_template"

@@ -1,0 +1,12 @@
+<!-- hr_civiltec_reports/reports/carta_desahucio_report_action.xml -->
+<odoo>
+    <record id="hr_employee_carta_desahucio_report" model="ir.actions.report">
+        <field name="name">Carta de Desahucio</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_civiltec_reports.carta_desahucio_template</field>
+        <field name="report_file">hr_civiltec_reports.carta_desahucio_template</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

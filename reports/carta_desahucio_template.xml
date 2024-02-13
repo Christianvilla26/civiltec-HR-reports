@@ -1,0 +1,61 @@
+<!-- hr_civiltec_reports/reports/carta_desahucio_template.xml -->
+<odoo>
+    <template id="carta_desahucio_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                        <div style="text-align: justify">
+                            <section>
+                        Santo Domingo, D.N.
+                                <br>
+                                    <t t-esc="doc.get_formatted_current_date()"/>
+                                </br>
+                            </section>
+                            <div style="height: 20px"></div>
+
+                            <section>
+                            <t t-esc="doc.get_gender_title()"/> 
+                            <br>
+                            <t t-esc="doc.name"/>
+                            </br>
+                               <br>
+                               <strong>
+                            <t t-esc="doc.job_title"/>
+                            </strong>
+                            </br>
+                               <br>
+                            Sus Manos.-
+                            </br>
+                            </section>
+                            <div style="height: 20px"></div>
+
+                            <section>
+                            Distinguido <t t-esc="doc.get_gender_title()"/>:
+                            </section>
+                            <div style="height: 20px"></div>
+
+                            <section>
+                            Cortésmente nos dirigimos a usted con la finalidad de informarle que en el día <t t-esc="doc.get_formatted_current_date()"/> Nos vemos precisados a dar término al contrato de trabajo que la unía con la empresa. Estimamos la terminación del contrato de trabajo bajo el motivo de desahucio, de conformidad con el numeral 1º del Artículo 69 del Código de Trabajo de la República Dominicana.
+                            <div style="height: 20px"></div>
+
+                            <br>
+Agradecemos sus servicios profesionales prestados durante el ejercicio de sus funciones en Constructora Civiltec.</br>
+                            </section>
+                            <div style="height: 20px"></div>
+
+                            <section>
+                            <strong> <t t-esc="doc.department_id.manager_id.name"/> Gestora de Recursos Humanos</strong>
+                            </section>
+                            <div style="height: 20px"></div>
+
+                            <section></section>
+                            <div style="height: 20px"></div>
+
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

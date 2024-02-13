@@ -103,7 +103,7 @@ class HrContract(models.Model):
         # Mapping or method for month in words
         months = ["", "enero", "febrero", "marzo", "abril", "mayo", "junio",
                   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-        month_word = months[month].upper()
+        month_word = months[month].capitalize()
 
         # Format and return the full date string as specified
         return f"a los {day_word} ({day}) del mes de {month_word} del {year}, en tres (3) originales, uno para cada una de las partes y los otros serán depositados en el Departamento de Trabajo para los fines legales correspondientes."
@@ -121,7 +121,7 @@ class HrContract(models.Model):
         # Define Spanish month names
         months = ["", "enero", "febrero", "marzo", "abril", "mayo", "junio",
                   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-        month_word = months[month].upper()
+        month_word = months[month].capitalize()
         # Format the year to show only the last digit if necessary
         year_str = f"del {year}"
         # Combine into the required format
@@ -164,3 +164,26 @@ class HrEmployee(models.Model):
         elapsed_time_spanish = ", ".join(parts)
         
         return elapsed_time_spanish or "Hoy"
+    
+    def get_formatted_current_date(self):
+        today = datetime.today()  # Correct usage
+
+        day = today.day
+        month = today.month
+        year = today.year
+
+        # Define Spanish month names
+        months = ["", "enero", "febrero", "marzo", "abril", "mayo", "junio",
+                  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        month_word = months[month].capitalize()
+        # Format the year to show only the last digit if necessary
+        year_str = f"del {year}"
+        # Combine into the required format
+        formatted_date = f"{day} de {month_word} {year_str}."
+        return formatted_date
+    
+    def get_gender_title(self):
+        if self.gender == 'female':
+            return "Señora"
+        else:
+            return "Señor"

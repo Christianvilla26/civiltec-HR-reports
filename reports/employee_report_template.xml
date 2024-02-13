@@ -8,12 +8,10 @@
                         <div style="text-align: justify; display: flex;flex-direction: column;">
                             <h2>A QUIEN PUEDA INTERESAR
                             </h2>
+            <div style="height: 30px"></div>
+
                             <section>
-                            Por esta vía hacemos constar que <t t-esc="doc.name"/>
-,  cédula de identidad No. <t t-esc="doc.identification_id"/>
-, laboró en el Departamento de  <t t-esc="doc.department_id"/>
-,  de esta institución por un periodo de <span t-esc="doc.get_elapsed_time_in_spanish()"/>
-, ocupando el cargo de <t t-esc="doc.job_title"/>
+                            Por esta vía hacemos constar que <t t-esc="doc.name"/>,  cédula de identidad No. <t t-esc="doc.identification_id"/>, laboró en el Departamento de  <t t-esc="doc.department_id.name"/>,  de esta institución por un periodo de <span t-esc="doc.get_elapsed_time_in_spanish()"/>, ocupando el cargo de <t t-esc="doc.job_title"/>
 .</section>
             <div style="height: 20px"></div>
             <section
@@ -21,8 +19,7 @@
                             >
                             Su función principal era velar por <t t-esc="doc.funciones"/>, mostrando un nivel de desempeño <t t-esc="doc.desempeno"/>.</section><div style="height: 20px"></div>
             <section>
-                            Si necesita más información o detalles sobre la experiencia de <t t-esc="doc.name"/>
-, puede contactarnos.
+                            Si necesita más información o detalles sobre la experiencia de <t t-esc="doc.name"/>, puede contactarnos.
             </section>
             <div style="height: 20px"></div>
             <section>
