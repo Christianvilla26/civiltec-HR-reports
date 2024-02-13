@@ -1,0 +1,71 @@
+<!-- my_module/views/hr_contract_report_template.xml -->
+<odoo>
+    <template id="hr_contract_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                        <div style="text-align: justify; display: flex;flex-direction: column;">
+                            <h2 style="text-align: center">CONTRATO DE TRABAJO</h2>
+                            <div style="height: 20px"></div>
+                            <section>
+                            ENTRE: De una parte, CONSTRUCTORA CIVILTEC SRL, Sociedad Comercial Constituida de acuerdo con las leyes de la República Dominicana, RNC 1-30-57482-2, con su domicilio y asiento social ubicado en la Calle Doce Juegos No. 54, Sector El Millón de esta ciudad; debidamente representada por su Gerente, el Ing. Pedro René Antonio Columna Núñez, dominicano, mayor de edad, casado, empresario, portador de la Cédula de Identidad y Electoral No. 001-1784662-6, domiciliado y residente en esta ciudad, en lo que sigue del presente acto se denominará como LA EMPLEADORA, y de la otra parte,</section>
+                            <div style="height: 20px"></div>
+                            <section>
+                                <span t-field="doc.employee_id"/>, nacionalidad <span t-field="doc.employee_id.country_id"/>, mayor de edad, titular de la Cédula de Identidad y Electoral número <span t-field="doc.employee_id.identification_id"/>, con domicilio en <span t-field="doc.employee_id.address_home_id.street"/>,                    <span t-field="doc.employee_id.address_home_id.city"/>,                    <span t-field="doc.employee_id.address_home_id.state_id"/>,                    <span t-field="doc.employee_id.address_home_id.country_id"/>, en lo que sigue del presente contrato se denominará como EL (LA) TRABAJADOR (A).</section>
+                <div style="height: 20px"></div>
+                <h3 style="text-align: center">SE HA CONVENIDO Y PACTADO LO SIGUIENTE:</h3>
+                <div style="height: 20px"></div>
+                <t t-set="date" t-value="doc.date_start"/>
+                <t t-set="day_in_words" t-value="doc.day_to_spanish_word(doc.date_start.day)"/>
+                <section>
+                            PRIMERO:	OBJETO. EL (LA) TRABAJADOR (A) laborará en el establecimiento comercial que opera la sociedad CONSTRUCTORA CIVILTEC, SRL. en Santo Domingo de Guzmán, Distrito Nacional, prestando servicios directamente en calidad de <span t-field="doc.job_id"/>
+, por un período indefinido, que se inicia el día   <span t-esc="day_in_words"/>
+ (            <span>
+                <t t-esc="date.strftime('%d')"/>
+)</span> del mes de <span t-esc="date.strftime('%B')"/>
+ del <span t-esc="date.year"/>
+.</section>
+    <div style="height: 20px"></div>
+    <section>
+                            SEGUNDO:	SALARIO – COMPENSACIONES ECONOMICAS. EL (LA) TRABAJADOR (A) percibirá un ingreso total de <t t-esc="doc.wage_to_words_es()"/>
+ PESOS DOMINICANOS 00/100 (RD$ <t t-esc="doc.get_formatted_wage()"/>
+), en calidad de salario, pagadero los días 15 y 30, de cada mes.</section>
+<div style="height: 20px"></div>
+<section>
+                            2.1	Adicionalmente recibirá, conforme la legislación vigente, un (1) salario adicional a más tardar el día veinte (20) del mes de diciembre de cada año y participación proporcional en los beneficios de la empresa.</section>
+<div style="height: 20px"></div>
+
+<section>
+                            TERCERO:	HORARIO. EL (LA) TRABAJADOR (A) deberá cumplir con un horario de trabajo de lunes a viernes, desde las 8:00 a.m., hasta las 5:00 p.m, y Sábados media jornada.</section>
+<div style="height: 20px"></div>
+
+<section>3.1	El horario implica su presencia, en condiciones ordinarias, durante toda la extensión de la jornada.</section>
+<div style="height: 20px"></div>
+
+<section>CUARTO:	LEGISLACION APLICABLE. Las relaciones de trabajo se regirán por las disposiciones del Código de Trabajo y sus reglamentos.</section>
+<div style="height: 20px"></div>
+<section>4.1	EL (LA) TRABAJADOR (A) será inscrito (a) en la Seguridad Social bajo la denominación de TEMPORAL durante los primeros NOVENTA (90) DIAS de vigencia de este contrato y en la denominación de FIJO, a partir de los resultados de la evaluación que será realizada antes del vencimiento de ese período.</section>
+<section>QUINTO:	ELECCION DE DOMICILIO.	Para los fines y consecuencias de este contrato, las partes eligen domicilio en las direcciones indicadas al inicio. Hecho y firmado en Santo Domingo de Guzmán, Distrito Nacional, capital de la República Dominicana, <t t-esc="doc.get_current_date_formatted()"/>.</section>
+<div style="height: 20px"></div>
+<div style="text-align: center">
+<section>POR LA EMPLEADOR						POR EL (LA) TRABAJADOR (A)</section>
+<div style="height: 20px"></div>
+
+<section>______________________________________________________</section>
+</div>
+<div style="height: 20px"></div>
+
+<section>Yo, <span t-field="doc.lawyer_name"/>, Abogado, Notario Público de los del Número del Distrito Nacional, Portador(a) del Carnet del Colegio Dominicano de Notarios Públicos No. <span t-field="doc.lawyer_rnc"/>, CERTIFICO: Que las firmas que anteceden fueron puestas en mi presencia, libre y voluntariamente, por los señores, ING.  PEDRO COLUMNA Y <span t-field="doc.employee_id"/> de generales descritas anteriormente, y quienes me han declarado que son las firmas que acostumbran a usar siempre. En Santo Domingo, Distrito Nacional, Capital de la República Dominicana, <t t-esc="doc.get_today_date_formatted()"/></section>
+<div style="height: 40px"></div>
+<div style="text-align: center" >
+<section>______________________________________________________</section>
+<section>NOTARIO PÚBLICO</section>
+</div>
+</div>
+</t>
+</div>
+</t>
+</t>
+</template>
+</odoo>
